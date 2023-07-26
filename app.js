@@ -5,6 +5,7 @@ const port = 3000;
 const tasks = require("./routes/tasks.js");
 
 //Middle Ware
+app.use(express.static("./public"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -12,7 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/tasks", tasks);
-
+console.log("Hello");
 const start = async () => {
   try {
     await connectDB();
